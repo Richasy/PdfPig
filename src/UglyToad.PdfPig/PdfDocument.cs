@@ -316,5 +316,16 @@
                 isDisposed = true;
             }
         }
+
+        /// <summary>
+        /// Clears all static font caches to release memory.
+        /// Call this method after processing PDF documents when memory usage is a concern.
+        /// This will clear cached Adobe Font Metrics and System Fonts.
+        /// </summary>
+        public static void ClearFontCache()
+        {
+            Fonts.AdobeFontMetrics.AdobeFontMetricsParser.ClearCache();
+            Fonts.SystemFonts.SystemFontFinder.ClearCache();
+        }
     }
 }

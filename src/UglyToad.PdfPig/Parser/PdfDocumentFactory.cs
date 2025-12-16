@@ -162,6 +162,11 @@
 
             pdfScanner.UpdateEncryptionHandler(encryptionHandler);
 
+            var information = DocumentInformationFactory.Create(
+                pdfScanner,
+                trailer,
+                parsingOptions.UseLenientParsing);
+
             var cidFontFactory = new CidFontFactory(
                 parsingOptions.Logger,
                 pdfScanner,
@@ -201,11 +206,6 @@
                 new Type3FontHandler(pdfScanner, encodingReader, cmapCache));
 
             var resourceContainer = new ResourceStore(pdfScanner, fontFactory, filterProvider, parsingOptions);
-
-            var information = DocumentInformationFactory.Create(
-                pdfScanner,
-                trailer,
-                parsingOptions.UseLenientParsing);
 
             var pageFactory = new PageFactory(pdfScanner, resourceContainer, filterProvider,
                 new PageContentParser(ReflectionGraphicsStateOperationFactory.Instance, parsingOptions.UseLenientParsing), parsingOptions);

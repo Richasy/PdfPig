@@ -10,7 +10,8 @@
     public sealed class MemoryInputBytes : IInputBytes
     {
         private readonly int upperBound;
-        private readonly ReadOnlyMemory<byte> memory;
+        private ReadOnlyMemory<byte> memory;
+        private bool isDisposed;
 
         /// <summary>
         /// Create a new <see cref="MemoryInputBytes"/>.
@@ -98,6 +99,12 @@
         /// <inheritdoc />
         public void Dispose()
         {
+            if (!isDisposed)
+            {
+                // 清除对底层字节数组的引用，允许 GC 回收
+                memory = ReadOnlyMemory<byte>.Empty;
+                isDisposed = true;
+            }
         }
     }
 }

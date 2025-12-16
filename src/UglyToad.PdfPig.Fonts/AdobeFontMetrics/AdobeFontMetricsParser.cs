@@ -329,7 +329,19 @@ namespace UglyToad.PdfPig.Fonts.AdobeFontMetrics
         private static readonly char[] IndividualCharmetricsSplit = [';'];
 
         private static readonly char[] CharmetricsKeySplit = [' '];
-        
+
+        /// <summary>
+        /// Clears the character names cache to release memory.
+        /// Call this method after processing PDF documents to free up memory.
+        /// </summary>
+        public static void ClearCache()
+        {
+            lock (Locker)
+            {
+                CharacterNames.Clear();
+            }
+        }
+
         /// <summary>
         /// Parse the font metrics from the input bytes.
         /// </summary>

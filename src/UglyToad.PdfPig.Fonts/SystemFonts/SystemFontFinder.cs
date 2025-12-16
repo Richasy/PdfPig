@@ -125,6 +125,18 @@ namespace UglyToad.PdfPig.Fonts.SystemFonts
         private readonly HashSet<string> readFiles = new HashSet<string>();
 
         /// <summary>
+        /// Clears the system font cache to release memory.
+        /// Call this method after processing PDF documents to free up memory.
+        /// </summary>
+        public static void ClearCache()
+        {
+            lock (CacheLock)
+            {
+                Cache.Clear();
+            }
+        }
+
+        /// <summary>
         /// Create a new <see cref="SystemFontFinder"/>.
         /// </summary>
         private SystemFontFinder()

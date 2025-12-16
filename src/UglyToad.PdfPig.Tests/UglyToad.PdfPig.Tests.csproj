@@ -75,15 +75,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
-        <PackageReference Include="SkiaSharp" Version="2.88.9" />
-        <PackageReference Include="xunit" Version="2.7.0" />
-        <PackageReference Include="xunit.extensibility.execution" Version="2.7.0" />
-        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="SkiaSharp" />
+        <PackageReference Include="xunit" />
+        <PackageReference Include="xunit.extensibility.execution" />
+        <PackageReference Include="xunit.runner.visualstudio">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
+        <PackageReference Include="Xunit.SkippableFact" />
     </ItemGroup>
 
     <ItemGroup>

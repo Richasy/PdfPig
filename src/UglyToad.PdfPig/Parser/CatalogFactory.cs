@@ -12,7 +12,7 @@
     internal static class CatalogFactory
     {
         public static Catalog Create(IndirectReference rootReference, DictionaryToken dictionary,
-            IPdfTokenScanner scanner, PageFactory pageFactory, ILog log, bool isLenientParsing)
+            IPdfTokenScanner scanner, IPageFactory<Page> pageFactory, ILog log, bool isLenientParsing)
         {
             if (dictionary is null)
             {
